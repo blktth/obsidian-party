@@ -69,8 +69,7 @@ export default class ObsidianParty extends Plugin {
 			name: 'party-hotkey',
 			hotkeys: [{ modifiers: ['Mod', 'Shift'], key: 'P' }],
 			callback: () => {
-				if (evt.hasClass("confetti")) party.confetti(t);
-				if (evt.hasClass("sparkles")) party.sparkles(t);
+				party.sparkles();
 			},
 		});
 		this.registerDomEvent(window, "click", (evt: MouseEvent) => {
