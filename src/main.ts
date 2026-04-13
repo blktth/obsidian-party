@@ -64,7 +64,12 @@ export default class ObsidianParty extends Plugin {
 		// register party
 		window.party = party;
 		this.party = party;
-
+		this.addCommand({
+			id: 'party-hotkey',
+			name: 'party-hotkey',
+			hotkeys: [{ modifiers: ['Mod', 'Shift'], key: 'P' }],
+			callback: () => {party.confetti(evt)},
+		});
 		this.registerDomEvent(window, "click", (evt: MouseEvent) => {
 			const target = evt.target as HTMLElement;
 			if (target && target.instanceOf(HTMLElement)) {
